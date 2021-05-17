@@ -4,15 +4,17 @@ from tkinter import *
 root = Tk()
 root.title("Temperature Converter")
 root.geometry("600x600")
-root.config(bg="light-gray")
+root.config(bg="lightgray")
 
 # celsius label and entry
 celsius_frame = Frame(root, width=220, height=150, background="gray")
 celsius_frame.place(x=10, y=10)
-celsius_frame = Label(celsius_frame, text="Celsius to Fahrenheit")
-celsius_frame.place(x=20, y=20)
+celsius_label = Label(celsius_frame, text="Celsius to Fahrenheit")
+celsius_label.place(x=20, y=20)
 celsius_entry = Entry(celsius_frame, state="readonly")
 celsius_entry.place(x=20, y=120)
+# celsius_entry = Entry(celsius_frame, state="readonly")
+# celsius_entry.place(x=20, y=120)
 
 # fahrenheit label and entry
 fahrenheit_frame = Frame(root, width=220, height=150, background="gray")
@@ -23,7 +25,7 @@ fahrenheit_entry = Entry(fahrenheit_frame, state="readonly")
 fahrenheit_entry.place(x=20, y=120)
 
 # label where result will be shown in
-convert_label = Label(root, background="light-pink", width=15)
+convert_label = Label(root, background="pink", width=15)
 convert_label.place(x=230, y=290)
 
 
@@ -31,7 +33,7 @@ convert_label.place(x=230, y=290)
 def activate_celsius():
     celsius_entry.config(state="normal")
     fahrenheit_entry.config(state="readonly")
-    celsius_frame.config(bg="light-pink")
+    celsius_frame.config(bg="pink")
     fahrenheit_frame.config(bg="gray")
 
 
@@ -40,7 +42,7 @@ def activate_celsius():
 def activate_fahrenheit():
     fahrenheit_entry.config(state="normal")
     celsius_entry.config(state="readonly")
-    fahrenheit_frame.config(bg="light-pink")
+    fahrenheit_frame.config(bg="pink")
     celsius_frame.config(bg="gray")
 
 
@@ -61,7 +63,6 @@ def clear_numbers():
     celsius_entry.delete(0, END)
     fahrenheit_entry.delete(0, END)
     convert_label.config(text="")
-
 
 # exit program
 def exit_program():
